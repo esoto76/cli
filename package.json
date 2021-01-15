@@ -1,0 +1,48 @@
+{
+  "name": "@esoto/cli",
+  "version": "0.0.0",
+  "description": "esoto command line tools",
+  "author": "Eric Sotomayor <elpasocolorartist@yahoo.com>",
+  "license": "ISC",
+  "private": true,
+  "scripts": {
+    "build": "rollup -c",
+    "watch": "rollup -c -w"
+  },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "commander": "^6.2.1",
+    "inquirer": "^7.3.3"
+  },
+  "devDependencies": {
+    "@rollup/plugin-alias": "^3.1.1",
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^11.0.1",
+    "@types/inquirer": "^7.3.1",
+    "@types/node": "^14.14.21",
+    "@types/rollup-plugin-node-builtins": "^2.1.1",
+    "@types/rollup-plugin-node-globals": "^1.4.0",
+    "@wessberg/rollup-plugin-ts": "^1.3.8",
+    "rollup": "^2.36.1",
+    "rollup-plugin-auto-external": "^2.0.0",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-node-globals": "^1.4.0",
+    "rollup-plugin-preserve-shebang": "^1.0.1",
+    "ts-lib": "^0.0.5",
+    "typescript": "^4.1.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/esoto76/cli.git"
+  },
+  "keywords": [
+    "@esoto/cli",
+    "esoto-cli",
+    "es-cli"
+  ],
+  "bugs": {
+    "url": "https://github.com/esoto76/cli/issues"
+  },
+  "homepage": "https://github.com/esoto76/cli#readme"
+}
