@@ -5,20 +5,29 @@
   "author": "Eric Sotomayor <elpasocolorartist@yahoo.com>",
   "license": "ISC",
   "private": true,
+  "main": "./src/index.js",
+  "types": "./src/index.d.ts",
+  "bin": {
+    "es-cli": "./src/index.js",
+    "esoto-cli": "./src/index.js"
+  },
+  "files": [
+    "./src/**/*"
+  ],
   "scripts": {
     "build": "rollup -c",
     "watch": "rollup -c -w"
   },
   "dependencies": {
     "chalk": "^4.1.0",
-    "commander": "^6.2.1",
+    "commander": "^7.0.0",
     "inquirer": "^7.3.3"
   },
   "devDependencies": {
     "@rollup/plugin-alias": "^3.1.1",
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^11.0.1",
+    "@rollup/plugin-node-resolve": "^11.1.0",
     "@types/inquirer": "^7.3.1",
     "@types/node": "^14.14.21",
     "@types/rollup-plugin-node-builtins": "^2.1.1",
