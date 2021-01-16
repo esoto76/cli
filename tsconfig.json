@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES6",
-    "module": "commonjs",
+    "module": "ES6",
     "lib": [
       "es6",
       "dom",
@@ -44,5 +44,5 @@
     "resolveJsonModule": true
   },
   "exclude": ["node_modules"],
-  "include": ["scripts/**/*"]
+  "include": ["./scripts/**/*"]
 }

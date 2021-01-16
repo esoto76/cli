@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { sep, resolve } from "path";
+import Path from "path";
 import shebang from "rollup-plugin-preserve-shebang";
 import autoExternal from "rollup-plugin-auto-external";
 import json from "@rollup/plugin-json";
@@ -11,10 +11,11 @@ import commonjs from "@rollup/plugin-commonjs";
 import ts from "@wessberg/rollup-plugin-ts";
 
 const input = {
-  index: "scripts/index.ts",
+  configs: "scripts/configs/index.ts",
+  index: "scripts/cli/index.ts",
 };
 
-const external = [resolve(__dirname, "./package.json")];
+const external = [Path.resolve(__dirname, "./package.json")];
 
 const extensions = [
   ".js",
@@ -63,7 +64,7 @@ const Entries = Object.keys(input);
 const IdPathParser = (id) =>
   id
     .replace(__dirname, "")
-    .split(sep)
+    .split(Path.sep)
     .filter((s) => s && s.length > 0)
     .join("/");
 
@@ -82,26 +83,29 @@ const manualChunks = (id, { getModuleInfo }) => {
   }
 };
 
-const output = [
-  {
-    chunkFileNames,
-    dir,
-    entryFileNames,
-    format,
-    freeze,
-    hoistTransitiveImports,
-    preferConst,
-    minifyInternalExports,
-    manualChunks,
-  },
-];
+const output = {
+  chunkFileNames,
+  dir,
+  entryFileNames,
+  format,
+  freeze,
+  hoistTransitiveImports,
+  preferConst,
+  minifyInternalExports,
+  manualChunks,
+  esModule: false,
+  exports: "named",
+};
 
 const customResolver = nodeResolve({ extensions });
 
 const plugins = [
-  shebang({ shebang: "#!/usr/bin/env node" }),
-  autoExternal(),
   json(),
+  autoExternal(),
+  shebang({
+    shebang: "#!/usr/bin/env node",
+    entry: Path.resolve(process.cwd(), "scripts/cli/index.ts"),
+  }),
   globals(),
   builtins(),
   customResolver,
